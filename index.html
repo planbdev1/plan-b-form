@@ -21,6 +21,8 @@
       margin: 2rem 0;
     }
   </style>
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -47,5 +49,15 @@
   <footer>
     &copy; 2025 나
   </footer>
+  
+  <!-- Materialize JS  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // 셀렉트 초기화
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('select');
+      M.FormSelect.init(elems);
+    });
+  </script>
 </body>
 </html>
