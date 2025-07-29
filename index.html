@@ -36,15 +36,23 @@
   
   <div id="form-container"></div>
   <script>
-    fetch('mixForm.html')
-    .then(response => response.text())
-    .then(html => {
-        document.getElementById('form-container').innerHTML = html;
+  fetch('mixForm.html')
+  .then(response => response.text())
+  .then(html => {
+      document.getElementById('form-container').innerHTML = html;
 
     // 삽입 후 select 초기화
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
-    });
+
+    // 삽입 완료 후 referrer input 찾기 및 값 설정
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    if (ref) {
+      const refInput = document.getElementById('referrer');
+      if (refInput) refInput.value = ref;
+    }
+});
   </script>
 
 
