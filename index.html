@@ -62,6 +62,15 @@
       var elems = document.querySelectorAll('select');
       M.FormSelect.init(elems);
     });
+    
+      const urlParams = new URLSearchParams(window.location.search);
+      const ref = urlParams.get('ref');
+      if (ref) {
+        const refInput = document.getElementById('referrer');
+        if (refInput) refInput.value = ref;
+      }
+    });
+    
   </script>
 </body>
 </html>
