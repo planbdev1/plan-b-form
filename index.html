@@ -57,12 +57,12 @@
   <!-- Materialize JS  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script>
-    // 셀렉트 초기화
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+      // Materialize select 초기화
       var elems = document.querySelectorAll('select');
       M.FormSelect.init(elems);
-    });
-    
+  
+      // URL에서 ref 파라미터 읽기
       const urlParams = new URLSearchParams(window.location.search);
       const ref = urlParams.get('ref');
       if (ref) {
@@ -70,7 +70,6 @@
         if (refInput) refInput.value = ref;
       }
     });
-    
   </script>
 </body>
 </html>
