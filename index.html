@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>상담 신청</title>
   <style>
     body {
@@ -10,11 +10,18 @@
       max-width: 600px;
       margin: auto;
     }
+    .section {
+      display: none;
+      margin-top: 1em;
+    }
+    .visible {
+      display: block;
+    }
     label {
       display: block;
       margin-top: 1em;
     }
-    input, select, button {
+    input, select, button, textarea {
       font-size: 1em;
       margin-top: 0.5em;
       width: 100%;
@@ -30,7 +37,21 @@
 <body>
   <h2>상담 신청</h2>
 
+  <!-- 주제 선택 -->
   <form id="consultForm">
+    <fieldset>
+      <legend>상담 주제를 선택하세요</legend>
+      <label>
+        <input type="radio" name="topic" value="mix" required>
+        믹싱/마스터링 클래스
+      </label>
+      <label>
+        <input type="radio" name="topic" value="midi">
+        작/편곡 클래스
+      </label>
+    </fieldset>
+
+    <!-- 공통 입력 -->
     <label>
       이름
       <input type="text" name="name" required>
@@ -41,14 +62,20 @@
       <input type="email" name="email" required>
     </label>
 
-    <label>
-      상담 주제를 선택하세요
-      <select name="topic" required>
-        <option value="">-- 선택하세요 --</option>
-        <option value="웹사이트 제작">웹사이트 제작</option>
-        <option value="마케팅 전략">마케팅 전략</option>
-      </select>
-    </label>
+    <div id="mixSection" class="section">
+      <label>
+        믹스?
+        <textarea name="mix_test1" rows="3" placeholder="예: 123"></textarea>
+      </label>
+    </div>
+
+
+    <div id="midiSection" class="section">
+      <label>
+        미디?
+        <textarea name="midi_test1" rows="3" placeholder="예: 123"></textarea>
+      </label>
+    </div>
 
     <button type="submit">신청하기</button>
   </form>
@@ -59,20 +86,48 @@
     const form = document.getElementById('consultForm');
     const result = document.getElementById('result');
 
+    const mixSection = document.getElementById('mixSection');
+    const marketingSection = document.getElementById('marketingSection');
+
     // URL에서 ref 파라미터 추출
     const params = new URLSearchParams(window.location.search);
     const ref = params.get('ref') || 'unknown';
+
+    // 라디오 선택 시 폼 섹션 보이기
+    const topicRadios = form.querySelectorAll('input[name="topic"]');
+    topicRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.value === '믹싱/마스터링') {
+          mixSection.classList.add('visible');
+          midiSection.classList.remove('visible');
+        } else if (radio.value === '미디 작곡/편곡') {
+          mixSection.classList.add('visible');
+          midiSection.classList.remove('visible');
+        }
+      });
+    });
 
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
       const formData = new FormData(form);
+      const topic = formData.get('topic');
+
       const payload = {
         name: formData.get('name'),
         email: formData.get('email'),
-        topic: formData.get('topic'),
+        topic: topic,
         ref: ref
       };
+
+      // 선택된 주제에 따라 추가 필드 포함
+      if (topic === 'mix') {
+        payload.mix_test1 = formData.get('mix_test1') || '';
+        payload.midi_test1 = '';
+      } else if (topic === 'midi') {
+        payload.midi_test1 = formData.get('midi_test1') || '';
+        payload.mix_test1 = '';
+      }
 
       try {
         const response = await fetch("<<여기에 Apps Script Web App URL 넣기>>", {
@@ -86,6 +141,8 @@
         if (response.ok) {
           result.textContent = "제출이 완료되었습니다. 감사합니다!";
           form.reset();
+          mixSection.classList.remove('visible');
+          midiSection.classList.remove('visible');
         } else {
           result.textContent = "오류가 발생했습니다. 다시 시도해주세요.";
           result.style.color = 'red';
