@@ -32,7 +32,7 @@
   .then(response => response.text())
   .then(html => {
       document.getElementById('form-container').innerHTML = html;
-
+      setupAgreementToggle(); 
     // 삽입 후 select 초기화
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
@@ -84,10 +84,12 @@
   </script>
   <!-- Show forms upon agreement -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    function setupAgreementToggle() {
       const checkbox = document.getElementById('agreementCheckbox');
       const followup = document.getElementById('followupSection');
-  
+    
+      if (!checkbox || !followup) return; // 혹시 아직 없으면 함수 종료
+    
       checkbox.addEventListener('change', function () {
         if (checkbox.checked) {
           followup.style.display = 'block';
@@ -95,7 +97,7 @@
           followup.style.display = 'none';
         }
       });
-    });
+    }
   </script>
 </body>
 </html>
