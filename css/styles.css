@@ -59,7 +59,7 @@ label.active{
     color: black;
 }
 
-label.option{
+input.option{
     font-family: 'Freesentation-4Regular', sans-serif !important;
 }
 
