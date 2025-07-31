@@ -57,7 +57,6 @@ label {
 
 label.active{
     color: black;
-    font-size: 1.2rem !important;
 }
 
 label.option{
@@ -84,3 +83,10 @@ button{
   color: black !important;
 }
 
+.input-field label {
+  font-size: 1.2rem !important;
+}
+
+.input-field label.active {
+  font-size: 1.2rem !important;
+}
