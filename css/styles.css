@@ -90,6 +90,6 @@ button{
 
 .input-field > label.active {
   font-size: 1.2rem !important;
-  top: -0.8rem !important;
+  top: -0.6rem !important;
   transform: translateY(-14px) scale(1) !important;
 }
