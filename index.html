@@ -82,5 +82,20 @@
       }
     });
   </script>
+  <!-- Show forms upon agreement -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const checkbox = document.getElementById('agreementCheckbox');
+      const followup = document.getElementById('followupSection');
+  
+      checkbox.addEventListener('change', function () {
+        if (checkbox.checked) {
+          followup.style.display = 'block';
+        } else {
+          followup.style.display = 'none';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
