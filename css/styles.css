@@ -59,11 +59,19 @@ label.active{
     color: black;
 }
 
+label.option{
+    font-family: 'Freesentation-4Regular', sans-serif !important;
+}
+
 input {
   font-family: 'Freesentation-4Regular', sans-serif !important;
 }
 
 textarea{
+  font-family: 'Freesentation-4Regular', sans-serif !important;
+}
+
+button{
   font-family: 'Freesentation-4Regular', sans-serif !important;
 }
   
