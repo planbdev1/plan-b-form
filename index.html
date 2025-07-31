@@ -44,6 +44,8 @@
       const refInput = document.getElementById('referrer');
       if (refInput) refInput.value = ref;
     }
+
+    setupFormValidation();  // 폼 로드 후 유효성 검사 이벤트 등록
 });
   </script>
 
@@ -78,6 +80,29 @@
         if (refInput) refInput.value = ref;
       }
     });
+  </script>
+
+  <!-- Validate Form -->
+  <script>
+      function validateCheckboxGroup(form, groupName) {
+        const checkboxes = form.querySelectorAll(`input[name="${groupName}"]`);
+        const checkedCount = Array.from(checkboxes).filter(cb => cb.checked).length;
+        return checkedCount > 0;
+      }
+
+      function setupFormValidation() {
+        const form = document.getElementById('consultForm');
+        if (!form) return;
+
+        form.addEventListener('submit', function(event) {
+          // 체크박스 'equipment' 그룹 검사
+          if (!validateCheckboxGroup(form, 'equipment')) {
+            alert('가지고 계신 장비 항목 최소 하나 이상 선택해주세요.');
+            event.preventDefault();
+            return false;
+          }
+        });
+      }
   </script>
 </body>
 </html>
