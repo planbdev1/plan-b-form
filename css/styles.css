@@ -52,6 +52,11 @@ label {
   font-family: 'Freesentation-9Black', sans-serif;
   font-size: 1.2rem !important;
 }
+
+label.active {
+  color: black; 
+}
+
 input {
   font-family: 'Freesentation-4Regular', sans-serif !important;
 }
