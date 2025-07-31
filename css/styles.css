@@ -39,8 +39,9 @@ header, footer {
   overflow: hidden;
 }
 main {
-  width: 70%;
+  width: 50%;
   margin: 2rem auto;
+  text-align: center; 
 }
 #particles-header, #particles-footer {
   position: absolute;
