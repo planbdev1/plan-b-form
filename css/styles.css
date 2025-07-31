@@ -75,6 +75,10 @@ button{
   font-family: 'Freesentation-4Regular', sans-serif !important;
 }
 
+.input-field{
+  padding: 4px 0 4px 0;
+}
+
 .input-field textarea:not(:focus):placeholder-shown + label {
   color: black !important;
 }
