@@ -30,10 +30,22 @@
   </main>
   
 <div style="text-align: center; margin-top: 2rem;">
-  <a href="/plan-b-form/" class="btn waves-effect waves-light">
-    메인으로 돌아가기
-  </a>
+  <a id="backBtn" href="index.html" class="btn waves-effect waves-light">메인으로 돌아가기</a>
 </div>
+
+<script>
+  // 페이지 로드 시 URL에서 ref 파라미터를 읽어서 버튼 href에 반영
+  window.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get('ref');
+    if (ref) {
+      const backBtn = document.getElementById('backBtn');
+      if (backBtn) {
+        backBtn.href = `index.html?ref=${encodeURIComponent(ref)}`;
+      }
+    }
+  });
+</script>
   
 </body>
 </html>
