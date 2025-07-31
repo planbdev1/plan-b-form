@@ -80,6 +80,11 @@
         if (refInput) refInput.value = ref;
       }
     });
+    
+    var elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
+    M.updateTextFields();
+    
   </script>
 
   <!-- Validate Form -->
