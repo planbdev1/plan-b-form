@@ -78,3 +78,7 @@ button{
 .input-field textarea:not(:focus):placeholder-shown + label {
   color: black !important;
 }
+
+.input-field input:not(:focus):placeholder-shown + label {
+  color: black !important;
+}
