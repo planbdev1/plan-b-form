@@ -41,7 +41,6 @@ header, footer {
 main {
   width: 50%;
   margin: 2rem auto;
-  text-align: center; 
 }
 #particles-header, #particles-footer {
   position: absolute;
