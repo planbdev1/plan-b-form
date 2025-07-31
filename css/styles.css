@@ -76,7 +76,7 @@ button{
 }
 
 .input-field{
-  margin-bottom: 4px;
+  margin: 2rem 0 2rem 0 !important;
 }
 
 .input-field textarea:not(:focus):placeholder-shown + label {
