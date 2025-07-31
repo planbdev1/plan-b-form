@@ -29,24 +29,26 @@
   <div id="form-container"></div>
   <script>
     fetch('forms/form.html')
-    .then(response => response.text())
-    .then(html => {
+      .then(response => response.text())
+      .then(html => {
         document.getElementById('form-container').innerHTML = html;
-      // 삽입 후 select 초기화
-      var elems = document.querySelectorAll('select');
-      M.FormSelect.init(elems);
-      M.updateTextFields();
   
-      // 삽입 완료 후 referrer input 찾기 및 값 설정
-      const urlParams = new URLSearchParams(window.location.search);
-      const ref = urlParams.get('ref');
-      if (ref) {
-        const refInput = document.getElementById('referrer');
-        if (refInput) refInput.value = ref;
-      }
+        // 삽입 후 select 초기화
+        var elems = document.querySelectorAll('select');
+        M.FormSelect.init(elems);
+        M.updateTextFields();
   
-      setupFormValidation();  // 폼 로드 후 유효성 검사 이벤트 등록
-      setupClassDawToggle();
+        // 삽입 완료 후 referrer input 찾기 및 값 설정
+        const urlParams = new URLSearchParams(window.location.search);
+        const ref = urlParams.get('ref');
+        if (ref) {
+          const refInput = document.getElementById('referrer');
+          if (refInput) refInput.value = ref;
+        }
+  
+        setupFormValidation();  // 폼 로드 후 유효성 검사 이벤트 등록
+        setupClassDawToggle();  // 클래스 선택에 따른 DAW 표시/숨김 처리
+      });
   </script>
 
 
