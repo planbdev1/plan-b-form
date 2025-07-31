@@ -26,8 +26,27 @@
     <h2>환영합니다!</h2>
     <p>플랜비 아카데미 상담 신청 폼 입니다.</p>
   
-  <div id="form-contai성
-});
+  <div id="form-container"></div>
+  <script>
+    fetch('forms/form.html')
+    .then(response => response.text())
+    .then(html => {
+        document.getElementById('form-container').innerHTML = html;
+      // 삽입 후 select 초기화
+      var elems = document.querySelectorAll('select');
+      M.FormSelect.init(elems);
+      M.updateTextFields();
+  
+      // 삽입 완료 후 referrer input 찾기 및 값 설정
+      const urlParams = new URLSearchParams(window.location.search);
+      const ref = urlParams.get('ref');
+      if (ref) {
+        const refInput = document.getElementById('referrer');
+        if (refInput) refInput.value = ref;
+      }
+  
+      setupFormValidation();  // 폼 로드 후 유효성 검사 이벤트 등록
+      setupClassDawToggle();
   </script>
 
 
