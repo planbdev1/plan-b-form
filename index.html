@@ -15,23 +15,26 @@
     line-height: 1.6;
     background-color: #f8f9fa;
   }
-    header, footer {
-      background-color: #000000;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-    }
-    main {
-      margin: 2rem 0;
-    }
-    #particles-js {
-      position: fixed;  /* fixed로 화면 전체에 고정 */
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      left: 0;
-      z-index: -1;      /* 뒤로 보내서 텍스트 위에 나오지 않게 */
-    }
+  header, footer {
+    background-color: #000000;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  main {
+    margin: 2rem 0;
+  }
+  #particles-header, #particles-footer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    z-index: -1;
+  }
+  header, footer {
+    position: relative; /* particles 절대위치 기준 */
+    overflow: hidden;
+  }
   </style>
   <!-- Materialize CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
@@ -40,16 +43,10 @@
   "></script>
 </head>
 <body>
-  <div id="particles-js"></div>
   <header>
+    <div id="particles-header"></div>
     <h1>플랜비 아카데미 상담 신청</h1>
   </header>
-
-  <script>
-    particlesJS.load('particles-js', 'assets/particles.json', function () {
-      console.log('particles.js loaded');
-    });
-  </script>
 
   <main>
     <h2>환영합니다!</h2>
@@ -80,8 +77,19 @@
   </main>
 
   <footer>
+    <div id="particles-footer"></div>
     &copy; 2025 나
   </footer>
+
+  <!-- particlesJS -->
+  <script>
+    particlesJS.load('particles-header', 'assets/particles-header.json', function() {
+      console.log('particles header loaded');
+    });
+    particlesJS.load('particles-footer', 'assets/particles-footer.json', function() {
+      console.log('particles footer loaded');
+    });
+  </script>
   
   <!-- Materialize JS  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
