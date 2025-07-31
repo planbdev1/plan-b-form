@@ -54,7 +54,7 @@
   
   <div id="form-container"></div>
   <script>
-  fetch('mixForm.html')
+  fetch('consultForm.html')
   .then(response => response.text())
   .then(html => {
       document.getElementById('form-container').innerHTML = html;
@@ -83,10 +83,10 @@
 
   <!-- particlesJS -->
   <script>
-    particlesJS.load('particles-header', 'assets/particles-header.json', function() {
+    particlesJS.load('particles-header', 'assets/particles.json', function() {
       console.log('particles header loaded');
     });
-    particlesJS.load('particles-footer', 'assets/particles-footer.json', function() {
+    particlesJS.load('particles-footer', 'assets/particles.json', function() {
       console.log('particles footer loaded');
     });
   </script>
