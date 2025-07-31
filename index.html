@@ -82,25 +82,5 @@
       }
     });
   </script>
-  <!-- Show forms upon agreement -->
-  <script>
-    function setupAgreementToggle() {
-      const checkbox = document.getElementById('agreementCheckbox');
-      const followup = document.getElementById('followupSection');
-    
-      if (!checkbox || !followup) return;
-    
-      // 초기 표시 상태 설정 (체크 여부에 따라)
-      followup.style.display = checkbox.checked ? 'block' : 'none';
-    
-      checkbox.addEventListener('change', function () {
-        if (checkbox.checked) {
-          followup.style.display = 'block';
-        } else {
-          followup.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>
