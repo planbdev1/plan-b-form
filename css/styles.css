@@ -82,3 +82,7 @@ button{
 .input-field input:not(:focus):placeholder-shown + label {
   color: black !important;
 }
+
+.input-field label {
+  font-size: 1.2rem !important;
+}
