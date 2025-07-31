@@ -32,7 +32,11 @@
 <div style="text-align: center; margin-top: 2rem;">
   <a id="backBtn" href="index.html" class="btn waves-effect waves-light">메인으로 돌아가기</a>
 </div>
-
+<footer>
+  <div id="particles-footer"></div>
+  &copy; 2025 나
+</footer>
+  
 <script>
   // 페이지 로드 시 URL에서 ref 파라미터를 읽어서 버튼 href에 반영
   window.addEventListener('DOMContentLoaded', () => {
@@ -49,6 +53,9 @@
 <script>
   particlesJS.load('particles-header', 'assets/particles.json', function () {
     console.log('particles header loaded');
+  });
+    particlesJS.load('particles-footer', 'assets/particles.json', function () {
+    console.log('particles footer loaded');
   });
 </script>
 </body>
