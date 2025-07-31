@@ -32,7 +32,6 @@
   .then(response => response.text())
   .then(html => {
       document.getElementById('form-container').innerHTML = html;
-      setupAgreementToggle(); 
     // 삽입 후 select 초기화
     var elems = document.querySelectorAll('select');
     M.FormSelect.init(elems);
