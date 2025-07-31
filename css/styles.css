@@ -74,4 +74,8 @@ textarea{
 button{
   font-family: 'Freesentation-4Regular', sans-serif !important;
 }
-  
+
+textarea:not(:focus) + label:not(.active) {
+  color: black !important;
+}
+
