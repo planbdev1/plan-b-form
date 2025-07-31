@@ -83,11 +83,13 @@ button{
   color: black !important;
 }
 
-.input-field label {
+.input-field > label {
   font-size: 1.2rem !important;
-  color: black;
+  top: 1.3rem !important;
 }
 
-.input-field label.active {
+.input-field > label.active {
   font-size: 1.2rem !important;
+  top: -0.8rem !important;
+  transform: translateY(-14px) scale(1) !important;
 }
