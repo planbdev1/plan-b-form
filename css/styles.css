@@ -97,3 +97,37 @@ button{
   top: -0.6rem !important;
   transform: translateY(-8px) scale(1) !important;
 }
+
+/* 화면 전체 덮는 반투명 오버레이 */
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4); /* 검은색 40% 투명 */
+  display: none;  /* 기본 숨김 */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000; /* 최상단 */
+  flex-direction: column;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* 로딩 스피너 (CSS 애니메이션) */
+#overlay .spinner {
+  margin-top: 20px;
+  border: 5px solid rgba(255, 255, 255, 0.3);
+  border-top: 5px solid white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
